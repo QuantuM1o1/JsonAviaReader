@@ -61,12 +61,9 @@ public class Main
             System.out.println("Средняя цена: " + averagePrice);
 
             prices.sort(Comparator.naturalOrder());
-            int median = prices.get(prices.size() / 2);
-            if (prices.size() % 2 == 0)
-            {
-                median += prices.get(prices.size() / 2 - 1);
-                median = median / 2;
-            }
+            int middle = prices.size() / 2;
+            int median = (prices.size() % 2 != 0) ? prices.get(middle)
+                    : (prices.get(middle) + prices.get(middle - 1)) / 2;
             System.out.println("Медианная цена: " + median);
 
             System.out.println("Разница между средней и медианой: " + Math.abs(averagePrice - median));
